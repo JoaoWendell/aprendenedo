@@ -1,0 +1,29 @@
+			EXERCICIO PARA ARMAZENAMENTO DE LIVROS:
+	1- Criar uma tabela para armazenar livros sem necessidades de outras tabelas, e realizar as seguintes buscas:
+		a- Trazer  todos os dados
+		b-trazer o nome do livro e da editora
+		c-trazer o nome do livro e a UF dos livros publicados por autores do sexo masculino
+		d- trazer o nome do  livro e numero de paginas dos livros publicados por autores do sexo feminino
+		e- trar os valores dos livros das editoras de São Paulo
+		f- trazer os dados dos autores do sexo masculino que tiveram livros puvlicados por São Paulo ou Rio de Janeiro 
+
+create data base Livraria;
+use Livraria;
+create table livros(
+	titulo varchar (30) not null,
+	nome_autor varchar (30) not null,
+	sexo_autor char (1) not null,
+	numero_paginas varchar(10) not null,
+	editora varchar (30) not null,
+	UF char (2) not null,
+	valor int not null, /*errei pois era float (5,2) not null,*/
+	ano_publicação char (4) not null;
+	
+insert into livros ( titulo, nome_autor, sexo_autor,numero_paginas, editora, UF, valor, ano_publicação) values ('Habitos saudaveis', 'Eduardo Santos', 'M','630','Beta','RJ',150.98,'2019'), ('A casa Marrom', 'Hermes Macedo', 'm', '250','Bubba','MG', 60, '2016'),('Estacio Querido', 'Geraldo Francisco', 'm', '310', 'Insignia','ES', 78.98, '2011'),('Copas Inesqueciveis', 'Marcos Alcantra', 'M', '200', 'Larson', 'RS', 130.98, '2018'),('O poder da mente', 'Clara Mafra', 'f', '120', 'Continental', 'SP', 56.58, '2017'), ('Pra sempre amigas', 'Leda Silva', 'f', '510', 'insignia', 'ES',100,'2011');
+ 
+select * from Livros;
+select titulo, UF from livros where sexo_autor = 'm';
+select titulo, numero_paginas from livros where sexo_autor = 'f';
+select titulo, numero_paginas from livros where sexo_autor = 'f';
+select valor from livros where UF = 'SP';
+select * from livros where sexo_autor='m' and UF= 'SP' or UF='RJ';

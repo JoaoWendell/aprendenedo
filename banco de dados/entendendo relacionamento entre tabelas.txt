@@ -1,0 +1,4 @@
+--- O relacionamento e criado a partir da chave primaria de uma tabela que vai até a outra se tornando secundaria.
+----Em relacinamentos (1x1) a foreign key fica na tabela mais fraca;
+---trava o relacionamento 1x1 colocando unique na chave estrangeira
+----Em relacionamento (1xN) a foreign key fica sempre na "N".
